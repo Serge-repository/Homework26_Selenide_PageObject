@@ -76,17 +76,25 @@ public class ProductListPage extends GeneralPage {
         typeOfPrice.pressEnter();
     }
 
+    private void scrollThroughProductListPage() {
+        pageBottom.scrollTo();
+        ramBlock.scrollTo();
+    }
+
     public ProductListPage setMinPrice(String input) {
         setUpPrice(filterMinPrice, input);
         return this;
     }
 
     public void setMaxPrice(String input) {
+        closeBanner();
         setUpPrice(filterMaxPrice, input);
+        scrollThroughProductListPage();
     }
 
     public ElementsCollection getProductsNames() {
         closeBanner();
+        scrollThroughProductListPage();
         return getPageElements(productNames);
     }
 
