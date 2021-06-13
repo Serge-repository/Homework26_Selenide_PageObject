@@ -19,7 +19,6 @@ public class CompareProductsTests extends TestBasis {
         homePage.searchAcerNotebooks();
         productListPage.setMinPrice("5000")
                 .setMaxPrice("20000");
-        //productListPage.closeBanner();
         String firstProductName = productListPage.getSearchFragment().getProductsNamesFromSideMenu().get(0);
         String secondProductName = productListPage.getSearchFragment().getProductsNamesFromSideMenu().get(1);
         String firstProductPrice = productListPage.getSearchFragment().getProductsPricesFromSideMenu().get(0);
