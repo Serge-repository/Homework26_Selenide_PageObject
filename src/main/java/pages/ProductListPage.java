@@ -83,6 +83,7 @@ public class ProductListPage extends GeneralPage {
 
     public ProductListPage setMinPrice(String input) {
         setUpPrice(filterMinPrice, input);
+        closeBanner();
         return this;
     }
 
