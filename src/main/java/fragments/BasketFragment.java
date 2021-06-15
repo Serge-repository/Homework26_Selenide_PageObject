@@ -1,5 +1,6 @@
 package fragments;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pages.GeneralPage;
@@ -18,6 +19,7 @@ public class BasketFragment extends GeneralPage {
 
     public ElementsCollection getNumberOfGoodsInBasket() {
         closeBanner();
+        numberOfGoodsInBasket.should(CollectionCondition.sizeGreaterThan(0));
         return getPageElements(numberOfGoodsInBasket);
     }
 
@@ -30,10 +32,12 @@ public class BasketFragment extends GeneralPage {
     }
 
     public ElementsCollection getGoodsInBasketNames() {
+        productInBasketNames.should(CollectionCondition.sizeGreaterThan(0));
         return getGoodsValuesFromBasket(productInBasketNames);
     }
 
     public ElementsCollection getGoodsInBasketPrices() {
+        productInBasketPrices.should(CollectionCondition.sizeGreaterThan(0));
         return getGoodsValuesFromBasket(productInBasketPrices);
     }
 

@@ -6,6 +6,9 @@ import pages.HomePage;
 import pages.ProductListPage;
 import pages.TestBasis;
 
+import static pages.enums.Phones.SAMSUNG_PHONES;
+import static pages.enums.Phones.XIAOMI_PHONES;
+
 public class FilterTests extends TestBasis {
 
     HomePage homePage = new HomePage();
@@ -13,7 +16,7 @@ public class FilterTests extends TestBasis {
 
     @Test
     public void priceFilter() throws Exception {
-        homePage.searchSamsungPhones();
+        homePage.searchPhoneByModel(SAMSUNG_PHONES);
         productListPage.setMinPrice("5000")
                 .setMaxPrice("10000");
         productListPage.getProductsNames().forEach(s -> s.hover().shouldHave(Condition.text("Samsung")));
@@ -22,7 +25,7 @@ public class FilterTests extends TestBasis {
 
     @Test
     public void memorySizeFilter() {
-        homePage.searchXiaomiPhones();
+        homePage.searchPhoneByModel(XIAOMI_PHONES);
         productListPage.selectRam("6");
         productListPage.getProductsNames().forEach(s -> s.shouldHave(Condition.text("Xiaomi")));
         productListPage.getProductsNames().forEach(s -> s.shouldHave(Condition.text("6/")));
@@ -34,7 +37,7 @@ public class FilterTests extends TestBasis {
 
     @Test
     public void bodyMaterialFilter() {
-        homePage.searchXiaomiPhones();
+        homePage.searchPhoneByModel(XIAOMI_PHONES);
         productListPage.selectMaterial("metall");
         productListPage.getProductsNames().forEach(s -> s.shouldHave(Condition.text("Xiaomi")));
         productListPage.closeBanner();

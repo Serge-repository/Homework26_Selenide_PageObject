@@ -24,12 +24,15 @@ public class CompareProductsTests extends TestBasis {
         String firstProductPrice = productListPage.getSearchFragment().getProductsPricesFromSideMenu().get(0);
         String secondProductPrice = productListPage.getSearchFragment().getProductsPricesFromSideMenu().get(1);
         productListPage.closeBanner();
+
         testLogger.log("Add first and second laptop to comparison");
         productListPage.getSearchFragment().getCompareButtonsViaSideSearch().get(0).hover().hover().click();
         productListPage.getSearchFragment().getCompareButtonsViaSideSearch().get(1).hover().hover().click();
+
         testLogger.log("Open compare menu");
         productListPage.getCompareFragment().clickOnCompareHeaderButton();
         productListPage.closeBanner();
+
         testLogger.log("Verification of 2 products in comparison, prices, names");
         productListPage.getCompareFragment().goodsInCompareQuantity().shouldHave(Condition.text("2"));
         productListPage.getSearchFragment().getGoodsInCompareListNames().get(0).shouldHave(Condition.text(secondProductName.substring(0, 26)));
@@ -45,14 +48,15 @@ public class CompareProductsTests extends TestBasis {
         String thirdProductName = productListPage.getSearchFragment().getProductsNamesFromSideMenu().get(2);
         String thirdProductPrice = productListPage.getSearchFragment().getProductsPricesFromSideMenu().get(2);
         productListPage.closeBanner();
+
         testLogger.log("Add third laptop to comparison");
         productListPage.getSearchFragment().getCompareButtonsViaSideSearch().get(2).hover().hover().click();
         productListPage.getCompareFragment().clickOnCompareHeaderButton();
         productListPage.closeBanner();
+
         testLogger.log("Verification of 3 products in comparison, prices, names");
         productListPage.getCompareFragment().goodsInCompareQuantity().shouldHave(Condition.text("3"));
         productListPage.getSearchFragment().getGoodsInCompareListNames().get(4).shouldHave(Condition.text(thirdProductName.substring(0, 26)));
         productListPage.getSearchFragment().getGoodsInCompareListPrices().get(2).shouldHave(Condition.text(thirdProductPrice));
-
     }
 }

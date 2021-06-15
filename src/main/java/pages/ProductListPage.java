@@ -13,9 +13,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProductListPage extends GeneralPage {
 
-    BasketFragment basketFragment = new BasketFragment();
-    CompareFragment compareFragment = new CompareFragment();
-    SearchFragment searchFragment = new SearchFragment();
+    private final BasketFragment basketFragment = new BasketFragment();
+    private final CompareFragment compareFragment = new CompareFragment();
+    private final SearchFragment searchFragment = new SearchFragment();
 
     String phone = "(//h5[contains(text(),'%s')]/../../following-sibling::div/following-sibling::div/div/div)[2]/span";
     String buttonBuy = "(//h5[contains(text(),'%s')]/../../following-sibling::div[@class='itm-footer-desc']/ul/li/i)[1]";

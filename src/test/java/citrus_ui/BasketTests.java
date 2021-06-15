@@ -7,6 +7,8 @@ import pages.ProductListPage;
 import pages.ProductPage;
 import pages.TestBasis;
 
+import static pages.enums.Phones.APPLE_PHONES;
+
 public class BasketTests extends TestBasis {
 
     HomePage homePage = new HomePage();
@@ -15,7 +17,7 @@ public class BasketTests extends TestBasis {
 
     @Test
     public void addProductToBasketUsingProductPage() {
-        homePage.searchApplePhones();
+        homePage.searchPhoneByModel(APPLE_PHONES);
         productListPage.clickOnExactProduct("Apple iPhone SE 2020 64Gb PRODUCT Red");
         String iPhoneSEPrice = productPage.getIPhoneSEPrice();
         productPage.clickOnBuyButton();

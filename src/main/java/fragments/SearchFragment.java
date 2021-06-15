@@ -1,5 +1,6 @@
 package fragments;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pages.GeneralPage;
@@ -31,35 +32,42 @@ public class SearchFragment extends GeneralPage {
     }
 
     public List<String> getProductsNamesList() {
+        productNames.should(CollectionCondition.sizeGreaterThan(0));
         return getValuesIntoList(productNames);
     }
 
     public List<String> getProductsPricesList() {
+        productPrices.should(CollectionCondition.sizeGreaterThan(0));
         return getValuesIntoList(productPrices);
     }
 
     public List<String> getProductsNamesFromSideMenu() {
         closeBanner();
+        productNamesViaSideSearch.should(CollectionCondition.sizeGreaterThan(0));
         return getValuesIntoList(productNamesViaSideSearch);
     }
 
     public List<String> getProductsPricesFromSideMenu() {
         closeBanner();
+        productPricesViaSideSearch.should(CollectionCondition.sizeGreaterThan(0));
         return getValuesIntoList(productPricesViaSideSearch);
     }
 
     public ElementsCollection getGoodsInCompareListPrices() {
         closeBanner();
+        productPrices.should(CollectionCondition.sizeGreaterThan(0));
         return getPageElements(productPrices);
     }
 
     public ElementsCollection getGoodsInCompareListNames() {
         closeBanner();
+        productNames.should(CollectionCondition.sizeGreaterThan(0));
         return getPageElements(productNames);
     }
 
     public ElementsCollection getCompareButtonsViaSideSearch() {
         closeBanner();
+        compareButtonViaSideSearch.should(CollectionCondition.sizeGreaterThan(0));
         return getPageElements(compareButtonViaSideSearch);
     }
 

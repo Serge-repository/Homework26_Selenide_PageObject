@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class ProductPage extends GeneralPage {
 
-    BasketFragment basketFragment = new BasketFragment();
+    private final BasketFragment basketFragment = new BasketFragment();
 
     private final SelenideElement iPhoneSEPrice = $x("(//b[@class='buy-section__new-price'])[1]");
     private final SelenideElement buyButton = $x("(//div[@class='buy-section__main-buy']/button)[1]");
