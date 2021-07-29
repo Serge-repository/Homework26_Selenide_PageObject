@@ -17,13 +17,13 @@ public class TestLogger {
         return simpleDateFormat.format(calendar.getTime());
     }
 
+    private String methodName() {
+        return Thread.currentThread().getStackTrace()[4].getMethodName();
+    }
+
     private void messenger(String message) {
         String dateFormat = getCurrentDateAndTime();
         System.out.println(Level.INFO + " Step " + step + " " + dateFormat + " [" + methodName() + "]: " + message);
         step++;
-    }
-
-    private String methodName() {
-        return Thread.currentThread().getStackTrace()[4].getMethodName();
     }
 }
