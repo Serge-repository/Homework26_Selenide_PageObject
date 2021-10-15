@@ -28,8 +28,10 @@ public class GeneralPage {
     }
 
     protected void closeBanner() {
+        // сначала ждем полной загрузки страницы
         new WebDriverWait(WebDriverRunner.getWebDriver(), 10).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+        // потом закрываем баннер
         if (bannerButton.isDisplayed()) {
             bannerButton.click();
         }
@@ -44,5 +46,10 @@ public class GeneralPage {
     protected void hoverAndSearch(SelenideElement elementToHover, SelenideElement elementToSearch) {
         hoverAction(elementToHover);
         clickAction(elementToSearch);
+    }
+
+    public static void waitForPageToBeFullyLoaded(){
+        new WebDriverWait(WebDriverRunner.getWebDriver(), 10).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 }
